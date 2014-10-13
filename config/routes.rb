@@ -3,8 +3,9 @@ Shouter::Application.routes.draw do
   #singleton resouce, it doesn't have an id
   resource :dashboard, only: [:show]
   resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create, :show] do
+  resources :users, only: [:new, :create, :show, :index] do
     post 'follow' => 'following_relationships#create'
+    delete 'follow' => 'following_relationships#destroy'
   end
 
   resources :shouts, only: [:show]
