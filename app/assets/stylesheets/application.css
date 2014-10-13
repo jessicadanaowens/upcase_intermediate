@@ -5,3 +5,8 @@
  *= require_self
  *= require_tree . 
 */
+
+.shout {
+    padding: 10px;
+    border: 1px solid #EEE;
+}
