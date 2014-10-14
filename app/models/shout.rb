@@ -7,8 +7,9 @@ class Shout < ActiveRecord::Base
     where(content_type: 'TextShout')
   end
 
-  def self.search term
-    text_shouts = TextShout.where("body LIKE ?", "%#{term}%")
-    where(content_type: "TextShout", content_id: text_shouts)
+  searchable do
+    text :content do
+      content.index
+    end
   end
 end
